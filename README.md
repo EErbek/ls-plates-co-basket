@@ -2,12 +2,11 @@
 
 This is a sample shopping basket project written in node.js / TypeScript
 
-Not that hard to implement to your own project. 
 - Supports extendable product catalogue.
 - Baskets created with unique identifiers.
 - Supports offer / discount conditions
 - Supports delivery fee calculation / conditions
-
+- Easy to implement.
 
 
 
@@ -47,7 +46,7 @@ Delivery calculator containing an array of `DeliveryChargeRule` objects and a me
 | Parameter                            | Functionality                                            | Access  |
 | ----------------------------------- | -------------------------------------------------------- | ------- |
 | rules:_DeliveryChargeRule[] | Array of DeliveryChargeRules | public  |
-| `getSuitableRule(basketSubTotal: number)`| Retrieves returns the rule matching the supplied basketSubTotal. If no match found, returns `null` | public  |
+| `getSuitableRule(basketSubTotal: number)`| Returns the rule matching the supplied basketSubTotal. If no match found, returns `null` | public  |
 
 
 ### Discount Model
@@ -66,7 +65,7 @@ Base class for Offers that can be applied to basket. All offers should confront 
 - Offer subClasses should have filenames starting with '`offer`' prefix.
 - Offer subClasses should be exported in `/src/offer/offerTypes/index.ts` file.
 - Offer subClasses should supply an `evaluate(basket:Basket)` method.
-- `evaluate(basket:Basket)` method should return a `Discount` condition is complies. Otherwise, it should return `null`.
+- `evaluate(basket:Basket)` method should return a `Discount[]` array if condition complies. Otherwise, it should return an empty array`[]`.
 
 
 | Parameter                            | Functionality                                            | Access  |
@@ -127,7 +126,11 @@ Used for creating and retrieving `Basket` objects.
 
 
 ## Additional Informations
-
+- Multiple Offers can be applied to a single basket.
+- Same offer applied multiple times is possible depending of evaluate method.
+- Important methods return {success:bool, data:any, error:string} for easy result check.
+- Samples can be found in main.
+- There are no "negative total" checks yet.
 
 
 ## Clone repository & Run
@@ -137,8 +140,8 @@ This project is intended to be used with the latest Active LTS release of [Node.
 To clone the repository, use the following commands:
 
 ```sh
-git clone https://github.com/EErbek/ls-basket
-cd ls-basket
+git clone https://github.com/EErbek/ls-plates-co-basket
+cd ls-plates-co-basket
 npm install
 npm run build
 npm start
@@ -146,10 +149,9 @@ npm start
 
 ## Available Scripts
 
-- `clean` - remove coverage data, Jest cache and transpiled files,
 - `build` - transpile TypeScript to ES6,
 - `start` - run the transpiled project,
-- `test` - run tests,
+- `clean` - remove coverage data, Jest cache and transpiled files.
 
 ## About Repository Template
 
@@ -157,7 +159,7 @@ This repository uses node-typescript-boilerplate as template which you can find 
 
 ## License
 
-Licensed under the APLv2. See the [LICENSE](https://github.com/EErbek/ls-basket/blob/main/LICENSE) file for details.
+Licensed under the APLv2. See the [LICENSE](https://github.com/EErbek/ls-plates-co-basket/blob/master/LICENSE) file for details.
 
 [ts-badge]: https://img.shields.io/badge/TypeScript-4.5-blue.svg
 

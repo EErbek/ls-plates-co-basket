@@ -14,11 +14,11 @@ export class OfferNthForX extends Offer {
     for(const item of basket.items){
       if(item.product.code === this.values.productCode) {
         if(item.count >= this.values.nth) {
-          return new Discount(this.name, this.values.discount);
+          return [new Discount(this.name, this.values.discount)];
         }
       }
     }
-    return null;
+    return [];
   }
 
 }

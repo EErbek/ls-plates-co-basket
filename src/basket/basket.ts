@@ -68,12 +68,12 @@ export class Basket {
     const grandTotal = priceWithoutDeliveryFee + deliveryChargeRule.deliveryFee;
 
     // Some console outputs for show purposes.
-    console.log('Items Total: $'+basketItemsTotal)
+    console.log('Items Total: $'+basketItemsTotal.toFixed(2))
     console.log('----------------------------------------------------------------')
     for (const basketItem of this.items) {
       console.log(basketItem.product.name + '\tx\t' + basketItem.count + '\t\t$' + this.bankersRound(basketItem.product.price,2) + '\t\t$' + (basketItem.count * basketItem.product.price).toFixed(2));
     }
-    console.log('\nTotal Discount: $'+basketDiscountTotal)
+    console.log('\nTotal Discount: $'+basketDiscountTotal.toFixed(2))
     console.log('----------------------------------------------------------------')
     for (const discount of this.discounts) {
       console.log(discount.name + '\t\t\t\t-$' + this.bankersRound(discount.amount,2));
@@ -81,7 +81,7 @@ export class Basket {
     if(this.discounts.length == 0)
       console.log("No offers applied.")
 
-    console.log("\nDelivery:")
+    console.log("\nDelivery: $"+deliveryChargeRule.deliveryFee.toFixed(2))
     console.log('----------------------------------------------------------------')
     console.log(deliveryChargeRule.name + '\t\t\t\t\t$' + deliveryChargeRule.deliveryFee.toFixed(2));
     console.log('\nGrand Total : $' + grandTotal.toFixed(2));

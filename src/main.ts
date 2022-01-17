@@ -24,8 +24,8 @@ const initBasketManager = () => {
 
   // Populate offers with sample offers
   const offerManager= new OfferManager([
-    new Offer("Second Blue Plate for $5","NthForX", {productCode: "B01", nth:2, discount:2.95 }),
     new Offer("Second Red Plate for Half Price","NthForHalf", {productCode: "R01", nth:2})
+    // new Offer("Second Blue Plate for $2 Discount!","NthForX", {productCode: "B01", nth:2, discount:2 }),
   ]);
 
   return new BasketManager(productManager, deliveryChargeRuleManager, offerManager);
@@ -35,14 +35,40 @@ const initBasketManager = () => {
 const basketManager = initBasketManager();
 
 // Create a new basket
-const basket = basketManager.create("user123");
 
 // Add products to the newly created basket
-basket.add("R01");
-// basket.add("R01");
-// basket.add("R01");
-// basket.add("R01");
-basket.add("B01");
-// basket.add("B01");
-basket.total();
+console.log('##################################################################');
+console.log('###################### RUNNING SAMPLES ###########################');
+console.log('##################################################################');
+
+// Sample Basket 1
+console.log('\n\n####################### SAMPLE BASKET 1 ###########################');
+const basket1 = basketManager.create("sb1");
+basket1.add("B01");
+basket1.add("G01");
+basket1.total();
+
+// Sample Basket 2
+console.log('\n\n####################### SAMPLE BASKET 2 ###########################');
+const basket2 = basketManager.create("sb2");
+basket2.add("R01");
+basket2.add("R01");
+basket2.total();
+
+// Sample Basket 3
+console.log('\n\n####################### SAMPLE BASKET 3 ###########################');
+const basket3 = basketManager.create("sb3");
+basket3.add("R01");
+basket3.add("G01");
+basket3.total();
+
+//Sample Basket 4
+console.log('\n\n####################### SAMPLE BASKET 4 ###########################');
+const basket4 = basketManager.create("sb4");
+basket4.add("B01");
+basket4.add("B01");
+basket4.add("R01");
+basket4.add("R01");
+basket4.add("R01");
+basket4.total();
 

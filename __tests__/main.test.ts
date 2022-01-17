@@ -21,8 +21,8 @@ const deliveryChargeRuleManager = new DeliveryChargeRuleManager([
 
 // Populate offers with sample offers
 const offerManager= new OfferManager([
-  new Offer("Second Red Plate for Half Price","NthForX", {productCode: "R01", nth:2, discount:16.475}),
-  new Offer("Second Blue Plate for Free","NthFree", {productCode: "B01", nth:2, discount:7.95})
+  new Offer("Second Red Plate for Half Price","NthForHalf", {productCode: "R01", nth:2})
+
 ]);
 
 const basketManager = new BasketManager(productManager, deliveryChargeRuleManager, offerManager);

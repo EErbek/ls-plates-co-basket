@@ -5,5 +5,5 @@ export class Offer {
   constructor(public name, public type, public values) {
   }
 
-  evaluate:(basket:Basket) => Discount;
+  evaluate:(basket:Basket) => Discount[];
 }

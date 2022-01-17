@@ -8,20 +8,19 @@ export class OfferManager {
   public offers: Offer[] = [];
 
   constructor(_offersData: Offer[] = []) {
-    for(const offer of _offersData){
-      const offerType = OfferType["Offer"+offer.type];
+    for (const offer of _offersData) {
+      const offerType = OfferType['Offer' + offer.type];
       this.offers.push(new offerType(offer.name, offer.type, offer.values));
     }
   }
 
-  applySuitableDiscounts(basket:Basket){
-    const discountsToAdd:Discount[]= [];
+  applySuitableDiscounts(basket: Basket) {
+    const discountsToApply: Discount[] = [];
     this.offers.map(o => {
-      const discount = o.evaluate(basket);
-      if(discount)
-        discountsToAdd.push(discount)
-    })
-    return discountsToAdd;
+      for (const discount of o.evaluate(basket))
+        discountsToApply.push(discount);
+    });
+    return discountsToApply;
   }
 }
 
