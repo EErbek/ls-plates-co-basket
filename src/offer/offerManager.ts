@@ -23,8 +23,3 @@ export class OfferManager {
     return discountsToApply;
   }
 }
-
-
-
-
-

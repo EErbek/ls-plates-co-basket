@@ -58,3 +58,17 @@ describe('Calculate Delivery Fee', () => {
     expect(basketManager.deliveryChargeRuleManager.getSuitableRule(45).deliveryFee).toBe(4.95);
   });
 });
+
+
+
+describe('Calculate Grand Total', () => {
+  it('Calculation of the grand total of basket', () => {
+    const basket = basketManager.create("sampleBasket");
+    basket.add("R01");
+    basket.add("R01");
+    basket.add("R01");
+    basket.add("B01");
+    basket.add("B01");
+    expect(basket.total().total).toBe(98.27);
+  });
+});
